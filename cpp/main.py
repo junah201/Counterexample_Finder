@@ -1,8 +1,7 @@
 import os
 import datetime
-import random
-import datetime
 import subprocess
+from make_tc import make_tc
 
 
 def measure_time(func):
@@ -55,23 +54,6 @@ def run_tc(input_value: str):
 
 
 if __name__ == "__main__":
-    # 검사할 횟수
-    T = 100
-    for i in range(1, T+1):
+    for i in range(1, 100):
         print(f"Test Case: {i}")
-        # 테스트 케이스를 생성하는 코드
-        limit = 5
-        limit2 = 100
-
-        N = random.randint(1, limit)
-        M = random.randint(1, limit)
-
-        input_value = f"{N} {M}\n"
-
-        for _ in range(N):
-            input_value += f"{random.randint(1, limit2)} {random.randint(1, limit2)}\n"
-
-        for _ in range(M):
-            input_value += f"{random.randint(1, limit2)}\n"
-
-        run_tc(input_value)
+        run_tc(make_tc())
